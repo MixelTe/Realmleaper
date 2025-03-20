@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#090834" />
+    <meta name="description" content="Realmleaper - Shoot'em up с элементами рогалика и механиками искажения времени и пространства"/>
+    <!-- <link rel="apple-touch-icon" href="imgs/favicon192.png" /> -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="canonical" href="https://mixelte.github.io/Realmleaper/v1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta property="og:title" content="Realmleaper v1" />
+    <meta property="og:description" content="Shoot'em up с элементами рогалика и механиками искажения времени и пространства" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mixelte.github.io/Realmleaper/v1/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/MixelTe/Realmleaper/master/v1/imgs/logo.png" />
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="540">
+    <meta property="og:image:height" content="345">
+    <meta name="twitter:site" content="Realmleaper v1">
+    <meta name="twitter:title" content="Realmleaper v1">
+    <meta name="twitter:description" content="Shoot'em up с элементами рогалика и механиками искажения времени и пространства">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/MixelTe/Realmleaper/master/v1/imgs/logo.png">
+    <title>Realmleaper v1</title>
+  </head>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex;">
+    <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 100%; height: 100%; background: #231F20"></canvas>
+    <script src="Build/Build.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/Build.data.gz",
+        frameworkUrl: "Build/Build.framework.js.gz",
+        codeUrl: "Build/Build.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Kvartet",
+        productName: "Realmleaper",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
+</html>
