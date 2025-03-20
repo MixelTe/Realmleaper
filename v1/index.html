@@ -45,9 +45,9 @@
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         arguments: [],
-        dataUrl: "Build/Build.data.gz",
-        frameworkUrl: "Build/Build.framework.js.gz",
-        codeUrl: "Build/Build.wasm.gz",
+        dataUrl: "Build/Build.data",
+        frameworkUrl: "Build/Build.framework.js",
+        codeUrl: "Build/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Kvartet",
         productName: "Realmleaper",
@@ -55,6 +55,11 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
+    </script>
+    <div id="loading" style="position: fixed; inset: 0; background-color: #00000055; display: flex; align-items: center; justify-content: center; color: white;">Идёт загрузка... нажмите, если уже появилась игра</div>
+    <script>
+      const el = document.getElementById("loading");
+      el.addEventListener("click", () => document.body.removeChild(el));
     </script>
   </body>
 </html>
